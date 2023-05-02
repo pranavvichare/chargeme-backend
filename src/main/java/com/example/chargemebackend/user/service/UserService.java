@@ -4,14 +4,8 @@ import com.example.chargemebackend.user.model.User;
 import com.example.chargemebackend.user.repository.UserRepository;
 import com.example.chargemebackend.utils.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserService {
@@ -26,7 +20,7 @@ public class UserService {
         User user = null;
         try {
             user = userRepository.findById(id)
-                    .orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+                    .orElseThrow(() -> new ResourceNotFoundException("user not exist with id :" + id));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
